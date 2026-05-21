@@ -1,0 +1,172 @@
+# Simple RADIUS dictionary compatible with pyrad
+# Basic RADIUS attributes from RFC 2865
+
+ATTRIBUTE	User-Name		1	string
+ATTRIBUTE	User-Password		2	string
+ATTRIBUTE	CHAP-Password		3	octets
+ATTRIBUTE	NAS-IP-Address		4	ipaddr
+ATTRIBUTE	NAS-Port		5	integer
+ATTRIBUTE	Service-Type		6	integer
+ATTRIBUTE	Framed-Protocol		7	integer
+ATTRIBUTE	Framed-IP-Address	8	ipaddr
+ATTRIBUTE	Framed-IP-Netmask	9	ipaddr
+ATTRIBUTE	Framed-Routing		10	integer
+ATTRIBUTE	Filter-Id		11	string
+ATTRIBUTE	Framed-MTU		12	integer
+ATTRIBUTE	Framed-Compression	13	integer
+ATTRIBUTE	Login-IP-Host		14	ipaddr
+ATTRIBUTE	Login-Service		15	integer
+ATTRIBUTE	Login-TCP-Port		16	integer
+ATTRIBUTE	Reply-Message		18	string
+ATTRIBUTE	Callback-Number		19	string
+ATTRIBUTE	Callback-Id		20	string
+ATTRIBUTE	Framed-Route		22	string
+ATTRIBUTE	Framed-IPX-Network	23	ipaddr
+ATTRIBUTE	State			24	octets
+ATTRIBUTE	Class			25	octets
+ATTRIBUTE	Vendor-Specific		26	octets
+ATTRIBUTE	Session-Timeout		27	integer
+ATTRIBUTE	Idle-Timeout		28	integer
+ATTRIBUTE	Termination-Action	29	integer
+ATTRIBUTE	Called-Station-Id	30	string
+ATTRIBUTE	Calling-Station-Id	31	string
+ATTRIBUTE	NAS-Identifier		32	string
+ATTRIBUTE	Proxy-State		33	octets
+ATTRIBUTE	Login-LAT-Service	34	string
+ATTRIBUTE	Login-LAT-Node		35	string
+ATTRIBUTE	Login-LAT-Group		36	octets
+ATTRIBUTE	Framed-AppleTalk-Link	37	integer
+ATTRIBUTE	Framed-AppleTalk-Network 38	integer
+ATTRIBUTE	Framed-AppleTalk-Zone	39	string
+ATTRIBUTE	Acct-Status-Type	40	integer
+ATTRIBUTE	Acct-Delay-Time		41	integer
+ATTRIBUTE	Acct-Input-Octets	42	integer
+ATTRIBUTE	Acct-Output-Octets	43	integer
+ATTRIBUTE	Acct-Session-Id		44	string
+ATTRIBUTE	Acct-Authentic		45	integer
+ATTRIBUTE	Acct-Session-Time	46	integer
+ATTRIBUTE	Acct-Input-Packets	47	integer
+ATTRIBUTE	Acct-Output-Packets	48	integer
+ATTRIBUTE	Acct-Terminate-Cause	49	integer
+ATTRIBUTE	Acct-Multi-Session-Id	50	string
+ATTRIBUTE	Acct-Link-Count		51	integer
+ATTRIBUTE	CHAP-Challenge		60	octets
+ATTRIBUTE	NAS-Port-Type		61	integer
+ATTRIBUTE	Port-Limit		62	integer
+ATTRIBUTE	Login-LAT-Port		63	string
+ATTRIBUTE	NAS-Port-Id		87	string
+ATTRIBUTE	Framed-Pool		88	string
+
+# Extended attributes from RFC 2869 and others
+ATTRIBUTE	Acct-Interim-Interval	85	integer
+ATTRIBUTE	Acct-Tunnel-Packets-Lost 86	integer
+
+# Additional attributes from RFC 3162
+ATTRIBUTE	NAS-IPv6-Address	95	octets
+ATTRIBUTE	Framed-IPv6-Prefix	97	octets
+
+# Message-Authenticator from RFC 2869
+ATTRIBUTE	Message-Authenticator	80	octets
+
+# Ericsson vendor-specific attributes (used by MikroTik)
+VENDOR		Ericsson			2352
+
+BEGIN-VENDOR	Ericsson
+ATTRIBUTE	Agent-Remote-Id			96	octets
+ATTRIBUTE	Agent-Circuit-Id		97	octets
+END-VENDOR	Ericsson
+
+# ADSL-Forum vendor-specific attributes (RFC 4679)
+VENDOR		ADSL-Forum			3561
+
+BEGIN-VENDOR	ADSL-Forum
+ATTRIBUTE	ADSL-Agent-Circuit-Id		1	octets
+ATTRIBUTE	ADSL-Agent-Remote-Id		2	octets
+END-VENDOR	ADSL-Forum
+
+# MikroTik vendor-specific attributes
+VENDOR		Mikrotik			14988
+
+BEGIN-VENDOR	Mikrotik
+ATTRIBUTE	Mikrotik-Recv-Limit		1	integer
+ATTRIBUTE	Mikrotik-Xmit-Limit		2	integer
+ATTRIBUTE	Mikrotik-Group			3	string
+ATTRIBUTE	Mikrotik-Wireless-Forward	4	integer
+ATTRIBUTE	Mikrotik-Wireless-Skip-Dot1x	5	integer
+ATTRIBUTE	Mikrotik-Wireless-Enc-Algo	6	integer
+ATTRIBUTE	Mikrotik-Wireless-Enc-Key	7	string
+ATTRIBUTE	Mikrotik-Rate-Limit		8	string
+ATTRIBUTE	Mikrotik-Realm			9	string
+ATTRIBUTE	Mikrotik-Host-IP		10	ipaddr
+ATTRIBUTE	Mikrotik-Mark-Id		11	string
+ATTRIBUTE	Mikrotik-Advertise-URL		12	string
+ATTRIBUTE	Mikrotik-Advertise-Interval	13	integer
+ATTRIBUTE	Mikrotik-Recv-Limit-Gigawords	14	integer
+ATTRIBUTE	Mikrotik-Xmit-Limit-Gigawords	15	integer
+ATTRIBUTE	Mikrotik-Wireless-PSK		16	string
+ATTRIBUTE	Mikrotik-Total-Limit		17	integer
+ATTRIBUTE	Mikrotik-Total-Limit-Gigawords	18	integer
+ATTRIBUTE	Mikrotik-Address-List		19	string
+ATTRIBUTE	Mikrotik-Wireless-MPKey		20	string
+ATTRIBUTE	Mikrotik-Wireless-Comment	21	string
+ATTRIBUTE	Mikrotik-Delegated-IPv6-Pool	22	string
+ATTRIBUTE	Mikrotik-DHCP-Option-Set	23	string
+ATTRIBUTE	Mikrotik-DHCP-Option-Param-STR1	24	string
+ATTRIBUTE	Mikrotik-DHCP-Option-Param-STR2	25	string
+ATTRIBUTE	Mikrotik-Wireless-VLANID	26	integer
+ATTRIBUTE	Mikrotik-Wireless-VLANIDtype	27	integer
+ATTRIBUTE	Mikrotik-Wireless-Minsignal	28	string
+ATTRIBUTE	Mikrotik-Wireless-Maxsignal	29	string
+ATTRIBUTE	Mikrotik-Switching-Filter	30	string
+END-VENDOR	Mikrotik
+
+# Framed-Protocol values
+VALUE	Framed-Protocol		PPP			1
+VALUE	Framed-Protocol		SLIP			2
+VALUE	Framed-Protocol		ARAP			3
+VALUE	Framed-Protocol		Gandalf-SLML		4
+VALUE	Framed-Protocol		Xylogics-IPX-SLIP	5
+VALUE	Framed-Protocol		X.75-Synchronous	6
+
+# Service-Type values
+VALUE	Service-Type		Login			1
+VALUE	Service-Type		Framed			2
+VALUE	Service-Type		Callback-Login		3
+VALUE	Service-Type		Callback-Framed		4
+VALUE	Service-Type		Outbound		5
+VALUE	Service-Type		Administrative		6
+VALUE	Service-Type		NAS-Prompt		7
+VALUE	Service-Type		Authenticate-Only	8
+VALUE	Service-Type		Callback-NAS-Prompt	9
+VALUE	Service-Type		Call-Check		10
+VALUE	Service-Type		Callback-Administrative	11
+VALUE	Service-Type		Voice			12
+VALUE	Service-Type		Fax			13
+VALUE	Service-Type		Modem-Relay		14
+VALUE	Service-Type		IAPP-Register		15
+VALUE	Service-Type		IAPP-AP-Check		16
+VALUE	Service-Type		Authorize-Only		17
+VALUE	Service-Type		Framed-Management	18
+VALUE	Service-Type		Additional-Authorization 19
+
+# NAS-Port-Type values
+VALUE	NAS-Port-Type		Async			0
+VALUE	NAS-Port-Type		Sync			1
+VALUE	NAS-Port-Type		ISDN			2
+VALUE	NAS-Port-Type		ISDN-V120		3
+VALUE	NAS-Port-Type		ISDN-V110		4
+VALUE	NAS-Port-Type		Virtual			5
+VALUE	NAS-Port-Type		PIAFS			6
+VALUE	NAS-Port-Type		HDLC-Clear-Channel	7
+VALUE	NAS-Port-Type		X.25			8
+VALUE	NAS-Port-Type		X.75			9
+VALUE	NAS-Port-Type		G.3-Fax			10
+VALUE	NAS-Port-Type		SDSL			11
+VALUE	NAS-Port-Type		ADSL-CAP		12
+VALUE	NAS-Port-Type		ADSL-DMT		13
+VALUE	NAS-Port-Type		IDSL			14
+VALUE	NAS-Port-Type		Ethernet		15
+VALUE	NAS-Port-Type		xDSL			16
+VALUE	NAS-Port-Type		Cable			17
+VALUE	NAS-Port-Type		Wireless-Other		18
+VALUE	NAS-Port-Type		Wireless-802.11		19
